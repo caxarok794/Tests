@@ -1,0 +1,255 @@
+/* Глобальные настройки */
+:root {
+    --primary-color: #ff7b00; /* Цвет Наруто */
+    --primary-hover: #e66a00;
+    --secondary-color: #2b6cb0; /* Цвет Саске/Конохи */
+    --bg-color: #f7fafc;
+    --card-bg: #ffffff;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --radius: 20px;
+}
+
+body {
+    font-family: 'Nunito', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+/* Управление экранами */
+.screen {
+    display: none;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.screen.active {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ЭКРАН 1: Главное меню --- */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.quiz-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.quiz-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.quiz-card-content {
+    padding: 20px;
+}
+
+.quiz-card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.quiz-card-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.quiz-tag {
+    background: #edf2f7;
+    color: var(--secondary-color);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* --- ЭКРАН 2: Вопросы --- */
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.text-btn:hover {
+    color: var(--primary-color);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.question-container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+#question-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+#question-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.answers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-main);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    border-color: var(--secondary-color);
+    background: #ebf8ff;
+    color: var(--secondary-color);
+}
+
+/* --- ЭКРАН 3: Результат --- */
+#result-screen {
+    text-align: center;
+}
+
+#result-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.result-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+#result-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#result-character-name {
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+    color: var(--secondary-color);
+}
+
+#result-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    text-align: left;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+.secondary-btn {
+    background: #edf2f7;
+    border: none;
+    width: 100%;
+}
+
+.secondary-btn:hover {
+    background: #e2e8f0;
+}

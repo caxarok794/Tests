@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты: Узнай себя</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-container">
+    <div id="home-screen" class="screen active">
+        <h1>Выбери свой тест</h1>
+        <p class="subtitle">Пройди квиз и узнай результат!</p>
+        
+        <div class="quiz-grid">
+            <div class="quiz-card" onclick="initNarutoQuiz()">
+                <img src="https://i.pinimg.com/736x/8f/3e/26/8f3e26cb3dbce8a7c29dd4c017992984.jpg" alt="Naruto Season 1" class="quiz-card-img">
+                <div class="quiz-card-content">
+                    <h3>Кто ты из Наруто? (1 Сезон)</h3>
+                    <p>Только классика, филлеры и первые фильмы. Узнай свой путь ниндзя!</p>
+                    <span class="quiz-tag">25 вопросов</span>
+                </div>
+            </div>
+
+            <div class="quiz-card" onclick="alert('Этот тест пока в разработке!')">
+                <img src="https://i.pinimg.com/736x/2b/c7/2a/2bc72a3922d9ea12b3252069bf38eb0d.jpg" alt="Conflict of Hijutsu" class="quiz-card-img">
+                <div class="quiz-card-content">
+                    <h3>Кого брать в команду в Conflict of Hijutsu?</h3>
+                    <p>Ответь на вопросы и мы подберем тебе идеальный старт!</p>
+                    <span class="quiz-tag">10 вопросов</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz-screen" class="screen hidden">
+        <button id="back-to-home" class="text-btn">← Назад к выбору</button>
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        
+        <div class="question-container">
+            <img id="question-image" class="hidden" src="" alt="Иллюстрация к вопросу">
+            <h2 id="question-text">Текст вопроса</h2>
+            <div id="answer-buttons" class="answers-grid">
+                </div>
+        </div>
+    </div>
+
+    <div id="result-screen" class="screen hidden">
+        <h2 id="result-title">Твой результат вычисляется...</h2>
+        <div class="result-card">
+            <img id="result-image" src="" alt="Твой персонаж">
+            <h3 id="result-character-name">Имя персонажа</h3>
+            <p id="result-description">Описание того, почему ты именно этот шиноби.</p>
+        </div>
+        <button id="restart-btn" class="btn primary-btn">Пройти еще раз</button>
+        <button id="home-btn" class="btn secondary-btn">В главное меню</button>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
